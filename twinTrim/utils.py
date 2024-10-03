@@ -14,7 +14,7 @@ def handle_and_remove(filepath):
     except PermissionError:
         click.echo(click.style(f"Permission denied (skipped): {filepath}", fg='red'))
     except Exception as e:
-        click.echo(click.style(f"Error deleting {filepath}: {e}", fg='red'))                    
+        click.echo(click.style(f"Error deleting {filepath}: {e}", fg='red'))
 
 def get_file_hash(file_path):
     """Generate a hash for a given file."""
@@ -39,3 +39,16 @@ def parse_size(size_str):
     except ValueError:
         # If conversion fails, return 0 for invalid formats
         return 0
+
+# Define colorized output functions
+def print_info(message):
+    click.echo(click.style(message, fg='cyan'))
+
+def print_success(message):
+    click.echo(click.style(message, fg='green'))
+
+def print_warning(message):
+    click.echo(click.style(message, fg='yellow'))
+
+def print_error(message):
+    click.echo(click.style(message, fg='red'))
